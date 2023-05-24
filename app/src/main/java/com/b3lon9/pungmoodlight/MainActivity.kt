@@ -68,6 +68,7 @@ class MainActivity : AppCompatActivity() {
 
         // app folder
         val appPath = File("$themePath/${MusicFile.FIRE}")
+        currentPath = appPath
 
         if (!appPath.exists()) {
             NLog.d("...not exists : ${appPath.path}")
@@ -99,7 +100,8 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    private var currentPath:File? = null
     fun play(v: View) {
-
+        NLog.d("...list : ${currentPath?.listFiles() }}")
     }
 }
