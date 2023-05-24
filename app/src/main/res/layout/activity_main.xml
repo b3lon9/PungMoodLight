@@ -14,19 +14,22 @@
             android:id="@+id/main_download"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="download" />
+            android:text="download"
+            android:onClickListener="@{() -> vm.download()}"/>
 
         <Button
             android:id="@+id/main_play"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="play" />
+            android:text="play"
+            android:onClickListener="@{() -> vm.play()}"/>
 
         <Button
             android:id="@+id/main_stop"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="stop" />
+            android:text="stop"
+            android:onClickListener="@{() -> vm.stop()}"/>
 
     </LinearLayout>
 </layout>

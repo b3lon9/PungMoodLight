@@ -1,19 +1,11 @@
 package com.b3lon9.pungmoodlight
 
-import android.content.Intent
 import android.os.Bundle
-import android.os.Environment
-import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.b3lon9.nlog.NLog
-import com.b3lon9.pungmoodlight.constant.MusicFile
 import com.b3lon9.pungmoodlight.databinding.ActivityMainBinding
 import com.b3lon9.pungmoodlight.viewmodels.MainViewModel
-import com.google.firebase.ktx.Firebase
-import com.google.firebase.storage.ktx.storage
-import java.io.File
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding

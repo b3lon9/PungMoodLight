@@ -3,6 +3,8 @@ package com.b3lon9.pungmoodlight.viewmodels
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
+import android.media.MediaPlayer
 import android.os.Environment
 import android.widget.Toast
 import androidx.lifecycle.ViewModel
@@ -17,6 +19,23 @@ import java.io.File
 @SuppressLint("StaticFieldLeak")
 class MainViewModel(private val context:Context) : ViewModel() {
     private val resources = context.resources
+    private var currentPath:File? = null
+
+    var mainBreath:Boolean = true       /* breath screen */
+    var mainMute:Boolean = false        /* sound mute */
+
+    // sound
+    var confNext:Boolean = false         /* play next sound */
+    var confTimer:Int = 0                /* timer == 0 infinite */
+
+    // color
+    var confRandomColor:Boolean = false   /* setting random color */
+    lateinit var confColor:Color          /* configure color */
+
+    // ad
+    var confRemoveAdvertise = false      /* toggle btn */
+
+
 
     fun download() {
         // music folder
@@ -46,6 +65,8 @@ class MainViewModel(private val context:Context) : ViewModel() {
             }
         }
 
+        currentPath = appPath
+
         // firebase - bonfire
         val storage = Firebase.storage
         val list = storage.reference.child(MusicFile.FIRE)
@@ -69,12 +90,19 @@ class MainViewModel(private val context:Context) : ViewModel() {
     }
 
     fun play() {
-
+        NLog.d("...play()")
         //val intent = Intent(this, MusicService::class.java)
         //startService(intent)
+        val mediaPlayer = MediaPlayer()
+        val path = currentPath?.listFiles()?.first()?.path
+        mediaPlayer.setDataSource(path)
+        mediaPlayer.setOnPreparedListener {
+            mediaPlayer.start()
+        }
+        mediaPlayer.prepare()
     }
 
     fun stop() {
-
+        NLog.d("...stop()")
     }
 }
