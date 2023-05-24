@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">풍무드등</string>
+
+    <!--folder mkdir success message-->
+    <string name="toast_mkdir_fail">폴더를 생성할 수 없습니다</string>
 </resources>
