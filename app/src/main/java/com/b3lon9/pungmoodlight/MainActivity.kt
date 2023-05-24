@@ -6,6 +6,8 @@ import androidx.databinding.DataBindingUtil
 import com.b3lon9.nlog.NLog
 import com.b3lon9.pungmoodlight.databinding.ActivityMainBinding
 import com.b3lon9.pungmoodlight.viewmodels.MainViewModel
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.MobileAds
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -22,6 +24,8 @@ class MainActivity : AppCompatActivity() {
         // todo(download wmv resources) : check
 
         // todo(AD removed) : check
+
+        initAdMob()
     }
 
     override fun onResume() {
@@ -44,5 +48,12 @@ class MainActivity : AppCompatActivity() {
         NLog.v("onDestroy()")
 
         vm.stop()
+    }
+
+    private fun initAdMob():Unit {
+        MobileAds.initialize(this)
+
+        val adRequest = AdRequest.Builder().build()
+        binding.banner.loadAd(adRequest)
     }
 }

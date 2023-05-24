@@ -49,6 +49,9 @@ dependencies {
 
     implementation 'com.google.firebase:firebase-storage-ktx' // add dependency for the cloud storage library
 
+    // ad
+    implementation 'com.google.android.gms:play-services-ads:22.0.0'
+
     // library
     implementation 'com.github.b3lon9:NLog:1.0.1'
 

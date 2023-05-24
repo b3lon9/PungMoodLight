@@ -1,35 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto" >
     <data>
         <variable
             name="vm"
             type="com.b3lon9.pungmoodlight.viewmodels.MainViewModel" />
     </data>
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <Button
-            android:id="@+id/main_download"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="download"
-            android:onClickListener="@{() -> vm.download()}"/>
+            android:orientation="horizontal">
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+            <Button
+                android:id="@+id/main_setting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"/>
+        </LinearLayout>
 
-        <Button
-            android:id="@+id/main_play"
+        </LinearLayout>
+
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/banner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="play"
-            android:onClickListener="@{() -> vm.play()}"/>
-
-        <Button
-            android:id="@+id/main_stop"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="stop"
-            android:onClickListener="@{() -> vm.stop()}"/>
-
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            ads:adSize="SMART_BANNER"
+            ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
+        </com.google.android.gms.ads.AdView>
     </LinearLayout>
 </layout>
