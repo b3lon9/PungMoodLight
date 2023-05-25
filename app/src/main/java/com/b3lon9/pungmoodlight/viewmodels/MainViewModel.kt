@@ -14,6 +14,7 @@ import com.b3lon9.nlog.NLog
 import com.b3lon9.pungmoodlight.MusicService
 import com.b3lon9.pungmoodlight.R
 import com.b3lon9.pungmoodlight.constant.MusicFile
+import com.b3lon9.pungmoodlight.custom.SettingDialog
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import java.io.File
@@ -39,9 +40,8 @@ class MainViewModel(private val context:Context) : ViewModel() {
 
 
     fun popupSetting() {
-        val dialogBuilder = AlertDialog.Builder(context)
-        val dialog = Dialog(context)
-        dialog.setContentView(R.layout.setting_dialog)
+        // val dialogBuilder = AlertDialog.Builder(context)
+        val dialog = SettingDialog(context)
         dialog.show()
     }
 

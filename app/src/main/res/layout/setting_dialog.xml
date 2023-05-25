@@ -16,9 +16,35 @@
             android:layout_height="wrap_content"
             android:text="타이머" />
 
-        <TimePicker
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+        <LinearLayout android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layoutDirection="ltr">
+
+            <!-- hour -->
+            <NumberPicker
+                android:id="@+id/hour"
+                style="@style/TimePickerStyle"
+                android:focusable="true"
+                android:focusableInTouchMode="true" />
+
+            <!-- minute -->
+            <NumberPicker
+                android:id="@+id/minute"
+                style="@style/TimePickerStyle"
+                android:layout_marginStart="5dip"
+                android:focusable="true"
+                android:focusableInTouchMode="true" />
+
+            <!-- seconds -->
+            <NumberPicker
+                android:id="@+id/seconds"
+                style="@style/TimePickerStyle"
+                android:layout_marginStart="5dip"
+                android:focusable="true"
+                android:focusableInTouchMode="true" />
+
+        </LinearLayout>
 
         <CheckBox
             android:layout_width="match_parent"
