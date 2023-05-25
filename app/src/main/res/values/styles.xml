@@ -32,9 +32,38 @@
         <item name="android:layout_centerHorizontal">true</item>
     </style>
 
+    <style name="SettingItemsStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">@dimen/setting_items_margin_bottom</item>
+        <item name="android:textSize">@dimen/setting_checkbox_text_size</item>
+    </style>
+
+    <style name="CheckBoxStyle" parent="SettingItemsStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">@dimen/setting_checkbox_text_size</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="TimePickerGroupStyle" parent="SettingItemsStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">@dimen/setting_timepicker_padding</item>
+        <item name="android:paddingRight">@dimen/setting_timepicker_padding</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="TimePickerBaseStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
     <style name="TimePickerStyle">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">1</item>
+
+        <item name="android:gravity">center</item>
     </style>
 </resources>

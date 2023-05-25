@@ -2,6 +2,7 @@ package com.b3lon9.pungmoodlight.custom
 
 import android.app.Dialog
 import android.content.Context
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.widget.FrameLayout
@@ -42,16 +43,25 @@ class SettingDialog(private val context:Context) : Dialog(context) {
         binding.hour.apply {
             minValue = 0
             maxValue = 23
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                textSize = context.resources.getFloat(R.dimen.setting_timepicker_text_size)
+            }
         }
 
         binding.minute.apply {
             minValue = 0
             maxValue = 60
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                textSize = context.resources.getFloat(R.dimen.setting_timepicker_text_size)
+            }
         }
 
         binding.seconds.apply {
             minValue = 0
             maxValue = 60
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                textSize = context.resources.getFloat(R.dimen.setting_timepicker_text_size)
+            }
         }
     }
 }

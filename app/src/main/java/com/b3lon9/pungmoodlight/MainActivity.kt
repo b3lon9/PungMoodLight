@@ -3,10 +3,6 @@ package com.b3lon9.pungmoodlight
 import android.os.Build
 import android.os.Bundle
 import android.view.WindowManager
-import android.view.animation.Animation
-import android.view.animation.Animation.AnimationListener
-import android.view.animation.AnimationUtils
-import android.widget.NumberPicker
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -28,7 +24,6 @@ class MainActivity : AppCompatActivity() {
         NLog.v("onCreate()")
 
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
-
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         vm = MainViewModel(this)
 
@@ -75,7 +70,9 @@ class MainActivity : AppCompatActivity() {
         initAdMob()
 
         binding.mainPicker.apply {
-            textSize = 120F
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                textSize = resources.getFloat(R.dimen.main_timepicker_text_size)
+            }
             minValue = 0
             maxValue = data.size - 1
             displayedValues = data

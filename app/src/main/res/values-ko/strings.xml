@@ -4,4 +4,14 @@
 
     <!--folder mkdir success message-->
     <string name="toast_mkdir_fail">폴더를 생성할 수 없습니다</string>
+
+    <!--setting-->
+    <string name="setting_next_sound">다음 소리 재생</string>
+    <string name="setting_timer">타이머</string>
+    <string name="setting_random_color">랜덤 색상</string>
+    <string name="setting_remove_all_advertise">모든 광고 제거</string>
+
+    <string name="time_hour">시간</string>
+    <string name="time_minute">분</string>
+    <string name="time_second">초</string>
 </resources>

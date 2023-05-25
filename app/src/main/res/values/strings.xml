@@ -4,4 +4,13 @@
     <!--folder mkdir success message-->
     <string name="toast_mkdir_fail">not make folder</string>
 
+    <!--setting-->
+    <string name="setting_next_sound">play next sound</string>
+    <string name="setting_timer">timer</string>
+    <string name="setting_random_color">random color</string>
+    <string name="setting_remove_all_advertise">remove all advertise</string>
+
+    <string name="time_hour">hour</string>
+    <string name="time_minute">minute</string>
+    <string name="time_second">second</string>
 </resources>

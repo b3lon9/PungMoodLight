@@ -4,61 +4,80 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="@dimen/setting_base_padding">
 
         <CheckBox
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="다음 소리 재생" />
+            style="@style/CheckBoxStyle"
+            android:text="@string/setting_next_sound" />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="타이머" />
+            style="@style/SettingItemsStyle"
+            android:text="@string/setting_timer"
+            android:textAlignment="center"/>
 
-        <LinearLayout android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layoutDirection="ltr">
+        <LinearLayout
+            style="@style/TimePickerGroupStyle">
 
-            <!-- hour -->
-            <NumberPicker
-                android:id="@+id/hour"
-                style="@style/TimePickerStyle"
-                android:focusable="true"
-                android:focusableInTouchMode="true" />
+            <LinearLayout
+                style="@style/TimePickerBaseStyle">
+                <TextView
+                    style="@style/TimePickerStyle"
+                    android:text="@string/time_hour" />
 
-            <!-- minute -->
-            <NumberPicker
-                android:id="@+id/minute"
-                style="@style/TimePickerStyle"
-                android:layout_marginStart="5dip"
-                android:focusable="true"
-                android:focusableInTouchMode="true" />
+                <TextView
+                    style="@style/TimePickerStyle"
+                    android:text="@string/time_minute" />
 
-            <!-- seconds -->
-            <NumberPicker
-                android:id="@+id/seconds"
-                style="@style/TimePickerStyle"
-                android:layout_marginStart="5dip"
-                android:focusable="true"
-                android:focusableInTouchMode="true" />
+                <TextView
+                    style="@style/TimePickerStyle"
+                    android:text="@string/time_second" />
+            </LinearLayout>
 
+            <LinearLayout
+                style="@style/TimePickerBaseStyle">
+
+                <!-- hour -->
+                <NumberPicker
+                    android:id="@+id/hour"
+                    style="@style/TimePickerStyle"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true" />
+
+                <!-- minute -->
+                <NumberPicker
+                    android:id="@+id/minute"
+                    style="@style/TimePickerStyle"
+                    android:layout_marginStart="5dip"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true" />
+
+                <!-- seconds -->
+                <NumberPicker
+                    android:id="@+id/seconds"
+                    style="@style/TimePickerStyle"
+                    android:layout_marginStart="5dip"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true" />
+            </LinearLayout>
         </LinearLayout>
 
+        <View
+            style="@style/SettingItemsStyle"
+            android:layout_height="1dp"
+            android:background="@color/style1_level4"
+            android:layout_marginBottom="21dp"/>
+
         <CheckBox
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="랜덤색상" />
+            style="@style/CheckBoxStyle"
+            android:text="@string/setting_random_color" />
 
 
         <NumberPicker
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            style="@style/SettingItemsStyle"/>
 
         <CheckBox
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="모든 광고 제거" />
+            style="@style/CheckBoxStyle"
+            android:text="@string/setting_remove_all_advertise" />
     </LinearLayout>
 </layout>

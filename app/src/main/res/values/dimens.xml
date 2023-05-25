@@ -6,4 +6,13 @@
     <dimen name="control_breath_button_size">68dp</dimen>
     <dimen name="control_player_button_size">96dp</dimen>
     <dimen name="control_mute_button_size">@dimen/control_breath_button_size</dimen>
+
+    <dimen name="main_timepicker_text_size">120F</dimen>
+
+    <!--setting dialog-->
+    <dimen name="setting_base_padding">12dp</dimen>
+    <dimen name="setting_items_margin_bottom">12dp</dimen>
+    <dimen name="setting_timepicker_padding">36dp</dimen>
+    <dimen name="setting_timepicker_text_size">96F</dimen>
+    <dimen name="setting_checkbox_text_size">18sp</dimen>
 </resources>
