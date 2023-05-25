@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 
         // todo(AD removed) : check
 
-        val fadeInAnimation = AnimationUtils.loadAnimation(this, R.anim.fade_in)
+        /*val fadeInAnimation = AnimationUtils.loadAnimation(this, R.anim.fade_in)
         fadeInAnimation.duration = 3000
         val fadeOutAnimation = AnimationUtils.loadAnimation(this, R.anim.fade_out)
         fadeOutAnimation.duration = 3000
@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() {
 
         })
 
-        binding.mainBase.startAnimation(fadeOutAnimation)
+        binding.mainBase.startAnimation(fadeOutAnimation)*/
 
         initAdMob()
 

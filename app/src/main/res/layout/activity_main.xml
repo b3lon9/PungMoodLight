@@ -11,19 +11,15 @@
     </data>
 
     <LinearLayout
-        android:id="@+id/main_base"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@color/purple_200">
+        android:orientation="vertical">
 
+        <!--Main-->
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:visibility="invisible">
-
+            android:id="@+id/main_base"
+            style="@style/MainBaseStyle"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -37,17 +33,16 @@
 
                 <Button
                     android:id="@+id/main_setting"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="12dp"
+                    android:layout_width="@dimen/main_setting_button_size"
+                    android:layout_height="@dimen/main_setting_button_size"
+                    android:layout_margin="@dimen/main_setting_button_margin"
+                    android:background="@drawable/baseline_settings_24"
                     android:onClickListener="@{() -> vm.popupSetting()}"/>
             </LinearLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/picker_base"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1">
+                style="@style/MainBaseStyle">
 
                 <NumberPicker
                     android:id="@+id/main_picker"
@@ -57,6 +52,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
 
+        <!--Controller-->
         <LinearLayout
             android:id="@+id/control_base"
             android:layout_width="match_parent"
@@ -64,29 +60,21 @@
             android:orientation="horizontal">
             <Button
                 android:id="@+id/control_breath"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
+                style="@style/ControlButtonStyle"/>
 
             <Button
                 android:id="@+id/control_player"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
+                style="@style/ControlButtonStyle" />
 
             <Button
                 android:id="@+id/control_mute"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1" />
+                style="@style/ControlButtonStyle" />
         </LinearLayout>
 
+        <!--Advertise-->
         <com.google.android.gms.ads.AdView
             android:id="@+id/banner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
+            style="@style/AdvertiseStyle"
             ads:adSize="SMART_BANNER"
             ads:adUnitId="ca-app-pub-3940256099942544/6300978111"
             tools:ignore="ObsoleteLayoutParam" />
