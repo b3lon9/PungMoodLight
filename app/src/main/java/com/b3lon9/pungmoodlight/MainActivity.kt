@@ -26,6 +26,11 @@ class MainActivity : AppCompatActivity() {
         // todo(AD removed) : check
 
         initAdMob()
+
+        val data = arrayOf("Berlin", "Moscow", "Tokyo", "Paris")
+        binding.mainPicker.setMinValue(0);
+        binding.mainPicker.setMaxValue(data.size-1);
+        binding.mainPicker.setDisplayedValues(data);
     }
 
     override fun onResume() {

@@ -1,6 +1,8 @@
 package com.b3lon9.pungmoodlight.viewmodels
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
+import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
@@ -36,6 +38,12 @@ class MainViewModel(private val context:Context) : ViewModel() {
     var confRemoveAdvertise = false      /* toggle btn */
 
 
+    fun popupSetting() {
+        val dialogBuilder = AlertDialog.Builder(context)
+        val dialog = Dialog(context)
+        dialog.setContentView(R.layout.setting_dialog)
+        dialog.show()
+    }
 
     fun download() {
         // music folder
