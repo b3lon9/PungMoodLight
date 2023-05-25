@@ -57,18 +57,30 @@
             android:id="@+id/control_base"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingBottom="12dp"
             android:orientation="horizontal">
-            <Button
-                android:id="@+id/control_breath"
-                style="@style/ControlButtonStyle"/>
 
+            <Space
+                style="@style/SpaceStyle"/>
+
+            <ToggleButton
+                android:id="@+id/control_breath"
+                style="@style/ControlButtonStyle"
+                android:background="@drawable/control_breath_selector" />
+            <Space
+                style="@style/SpaceStyle"/>
             <Button
                 android:id="@+id/control_player"
-                style="@style/ControlButtonStyle" />
-
-            <Button
+                style="@style/ControlPlayerStyle"
+                android:background="@drawable/control_player_selector" />
+            <Space
+                style="@style/SpaceStyle"/>
+            <ToggleButton
                 android:id="@+id/control_mute"
-                style="@style/ControlButtonStyle" />
+                style="@style/ControlButtonStyle"
+                android:background="@drawable/control_mute_selector" />
+            <Space
+                style="@style/SpaceStyle"/>
         </LinearLayout>
 
         <!--Advertise-->

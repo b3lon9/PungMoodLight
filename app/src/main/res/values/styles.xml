@@ -6,13 +6,23 @@
         <item name="android:layout_weight">1</item>
     </style>
 
-    <style name="ControlButtonStyle">
+    <style name="SpaceStyle">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="ControlButtonStyle">
+        <item name="android:layout_width">@dimen/control_breath_button_size</item>
+        <item name="android:layout_height">@dimen/control_breath_button_size</item>
 
         <item name="android:textOn">""</item>
         <item name="android:textOff">""</item>
+    </style>
+
+    <style name="ControlPlayerStyle" parent="ControlButtonStyle">
+        <item name="android:layout_width">@dimen/control_player_button_size</item>
+        <item name="android:layout_height">@dimen/control_player_button_size</item>
     </style>
 
     <style name="AdvertiseStyle">
