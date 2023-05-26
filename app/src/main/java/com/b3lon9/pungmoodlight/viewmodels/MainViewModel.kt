@@ -15,6 +15,7 @@ import com.b3lon9.pungmoodlight.MusicService
 import com.b3lon9.pungmoodlight.R
 import com.b3lon9.pungmoodlight.constant.MusicFile
 import com.b3lon9.pungmoodlight.custom.SettingDialog
+import com.b3lon9.pungmoodlight.models.SettingModel
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import java.io.File
@@ -23,6 +24,7 @@ import java.io.File
 class MainViewModel(private val context:Context) : ViewModel() {
     private val resources = context.resources
     private var currentPath:File? = null
+    private var settingDialog:SettingDialog? = SettingDialog(context)
 
     var mainBreath:Boolean = true       /* breath screen */
     var mainMute:Boolean = false        /* sound mute */
@@ -41,8 +43,20 @@ class MainViewModel(private val context:Context) : ViewModel() {
 
     fun popupSetting() {
         // val dialogBuilder = AlertDialog.Builder(context)
-        val dialog = SettingDialog(context)
-        dialog.show()
+        settingDialog?.let {
+            it.settingDataListener(listener)
+            it.show()
+        }
+    }
+
+    private val listener = object:SettingViewModel.SettingDataListener{
+        override fun onSettingData(data: SettingModel) {
+            NLog.d("...onSettingData : $data")
+            
+            settingDialog?.let {
+                it.dismiss()
+            }
+        }
     }
 
     fun download() {

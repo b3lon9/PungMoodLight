@@ -13,16 +13,16 @@ import com.b3lon9.nlog.NLog
 import com.b3lon9.pungmoodlight.R
 import com.b3lon9.pungmoodlight.databinding.SettingDialogBinding
 import com.b3lon9.pungmoodlight.viewmodels.SettingViewModel
+import com.b3lon9.pungmoodlight.viewmodels.SettingViewModel.SettingDataListener
 
 class SettingDialog(private val context:Context) : Dialog(context) {
     private lateinit var binding:SettingDialogBinding
-    private lateinit var vm:SettingViewModel
+    private var vm:SettingViewModel = SettingViewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         NLog.d("..onCreate()")
         binding = DataBindingUtil.inflate(layoutInflater, R.layout.setting_dialog, null, false)
-        vm = SettingViewModel()
 
         setContentView(binding.root)
 
@@ -49,6 +49,9 @@ class SettingDialog(private val context:Context) : Dialog(context) {
         NLog.d("..dismiss()")
     }
 
+    fun settingDataListener(listener:SettingDataListener) {
+        vm.setSettingListener(listener)
+    }
 
 
     private fun init():Unit{
