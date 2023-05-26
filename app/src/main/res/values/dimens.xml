@@ -12,6 +12,7 @@
     <!--setting dialog-->
     <dimen name="setting_base_padding">12dp</dimen>
     <dimen name="setting_items_margin_bottom">12dp</dimen>
+    <dimen name="setting_close_button_size">42dp</dimen>
     <dimen name="setting_timepicker_padding">36dp</dimen>
     <dimen name="setting_timepicker_text_size">96F</dimen>
     <dimen name="setting_checkbox_text_size">18sp</dimen>

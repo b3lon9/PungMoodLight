@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
-
+    <data>
+        <variable
+            name="dialog"
+            type="com.b3lon9.pungmoodlight.custom.SettingDialog" />
+    </data>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="@dimen/setting_base_padding">
+        
+        <Button
+            android:id="@+id/setting_close"
+            android:layout_width="@dimen/setting_close_button_size"
+            android:layout_height="@dimen/setting_close_button_size"
+            android:layout_gravity="end"
+            android:onClickListener="@{() -> dialog.dismiss()}"
+            android:background="@drawable/baseline_close_24" />
 
         <CheckBox
             style="@style/CheckBoxStyle"
@@ -79,5 +91,10 @@
         <CheckBox
             style="@style/CheckBoxStyle"
             android:text="@string/setting_remove_all_advertise" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/setting_apply" />
     </LinearLayout>
 </layout>
