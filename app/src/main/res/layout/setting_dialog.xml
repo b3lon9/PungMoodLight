@@ -4,6 +4,10 @@
         <variable
             name="dialog"
             type="com.b3lon9.pungmoodlight.custom.SettingDialog" />
+
+        <variable
+            name="vm"
+            type="com.b3lon9.pungmoodlight.viewmodels.SettingViewModel" />
     </data>
     <LinearLayout
         android:layout_width="match_parent"

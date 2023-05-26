@@ -12,22 +12,31 @@ import com.b3lon9.nlog.BuildConfig
 import com.b3lon9.nlog.NLog
 import com.b3lon9.pungmoodlight.R
 import com.b3lon9.pungmoodlight.databinding.SettingDialogBinding
+import com.b3lon9.pungmoodlight.viewmodels.SettingViewModel
 
 class SettingDialog(private val context:Context) : Dialog(context) {
     private lateinit var binding:SettingDialogBinding
+    private lateinit var vm:SettingViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         NLog.d("..onCreate()")
-        binding = DataBindingUtil.inflate(LayoutInflater.from(context), R.layout.setting_dialog, null, false)
-        binding.dialog = this
+        binding = DataBindingUtil.inflate(layoutInflater, R.layout.setting_dialog, null, false)
+        vm = SettingViewModel()
+
         setContentView(binding.root)
 
-        val layoutParams = FrameLayout.LayoutParams(binding.root.layoutParams)
-        layoutParams.width = (context.resources.displayMetrics.widthPixels * 0.9).toInt()
-        binding.root.layoutParams = layoutParams
-
         init()
+    }
+
+    override fun onAttachedToWindow() {
+        super.onAttachedToWindow()
+        NLog.d("..onAttachedToWindow()")
+    }
+
+    override fun onDetachedFromWindow() {
+        super.onDetachedFromWindow()
+        NLog.d("..onDetachedFromWindow()")
     }
 
     override fun show() {
@@ -40,7 +49,16 @@ class SettingDialog(private val context:Context) : Dialog(context) {
         NLog.d("..dismiss()")
     }
 
+
+
     private fun init():Unit{
+        binding.dialog = this
+        binding.vm = vm
+
+        val layoutParams = FrameLayout.LayoutParams(binding.root.layoutParams)
+        layoutParams.width = (context.resources.displayMetrics.widthPixels * 0.9).toInt()
+        binding.root.layoutParams = layoutParams
+
         binding.hour.apply {
             minValue = 0
             maxValue = 23

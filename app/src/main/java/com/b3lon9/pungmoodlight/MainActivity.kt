@@ -6,6 +6,7 @@ import android.view.WindowManager
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import com.b3lon9.nlog.BuildConfig
 import com.b3lon9.nlog.NLog
 import com.b3lon9.pungmoodlight.databinding.ActivityMainBinding
 import com.b3lon9.pungmoodlight.viewmodels.MainViewModel
@@ -16,7 +17,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var vm:MainViewModel
 
-    private val data = arrayOf("BonFire", "Typing", "CoffeeMachine", "Book", "Insect", "HeartBeat", "UnderWater", "WaterFall", "Bird")
+    private val data = arrayOf("BonFire", "Typing", "WaterFall", "CoffeeMachine", "Book", "Insect", "HeartBeat", "UnderWater", "Bird")
 
     @RequiresApi(Build.VERSION_CODES.Q)
     override fun onCreate(savedInstanceState: Bundle?) {
