@@ -52,7 +52,7 @@ class MainViewModel(private val context:Context) : ViewModel() {
     private val listener = object:SettingViewModel.SettingDataListener{
         override fun onSettingData(data: SettingModel) {
             NLog.d("...onSettingData : $data")
-            
+
             settingDialog?.let {
                 it.dismiss()
             }

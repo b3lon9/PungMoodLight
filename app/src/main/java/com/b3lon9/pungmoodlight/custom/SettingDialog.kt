@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.widget.FrameLayout
 import android.widget.LinearLayout
+import android.widget.NumberPicker
 import androidx.databinding.DataBindingUtil
 import com.b3lon9.nlog.BuildConfig
 import com.b3lon9.nlog.NLog
@@ -65,6 +66,7 @@ class SettingDialog(private val context:Context) : Dialog(context) {
         binding.hour.apply {
             minValue = 0
             maxValue = 23
+            setFormatter(formatter)
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                 textSize = context.resources.getFloat(R.dimen.setting_timepicker_text_size)
             }
@@ -73,6 +75,7 @@ class SettingDialog(private val context:Context) : Dialog(context) {
         binding.minute.apply {
             minValue = 0
             maxValue = 60
+            setFormatter(formatter)
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                 textSize = context.resources.getFloat(R.dimen.setting_timepicker_text_size)
             }
@@ -81,9 +84,17 @@ class SettingDialog(private val context:Context) : Dialog(context) {
         binding.seconds.apply {
             minValue = 0
             maxValue = 60
+            setFormatter(formatter)
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                 textSize = context.resources.getFloat(R.dimen.setting_timepicker_text_size)
             }
         }
+    }
+
+    private val formatter = object:NumberPicker.Formatter {
+        override fun format(i: Int): String {
+            return String.format("%02d", i)
+        }
+
     }
 }
