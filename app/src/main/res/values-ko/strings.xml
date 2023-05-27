@@ -19,4 +19,15 @@
 
     <string name="color_orange">주황</string>
     <string name="color_green">초록</string>
+
+    <!--sound data-->
+    <string name="sound_bonfire">모닥불</string>
+    <string name="sound_typing">타이핑</string>
+    <string name="sound_underwater">물 속</string>
+    <string name="sound_coffeemachine">커피머신</string>
+    <string name="sound_book">책</string>
+    <string name="sound_insect">곤충</string>
+    <string name="sound_heartbeat">심장</string>
+    <string name="sound_bird">새</string>
+
 </resources>

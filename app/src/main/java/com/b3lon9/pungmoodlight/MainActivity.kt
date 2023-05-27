@@ -17,8 +17,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var vm:MainViewModel
 
-    private val data = arrayOf("BonFire", "Typing", "WaterFall", "CoffeeMachine", "Book", "Insect", "HeartBeat", "UnderWater", "Bird")
-
     @RequiresApi(Build.VERSION_CODES.Q)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -75,8 +73,8 @@ class MainActivity : AppCompatActivity() {
                 textSize = resources.getFloat(R.dimen.main_timepicker_text_size)
             }
             minValue = 0
-            maxValue = data.size - 1
-            displayedValues = data
+            maxValue = vm.data.size - 1
+            displayedValues = vm.data
         }
     }
 

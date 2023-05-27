@@ -18,4 +18,14 @@
 
     <string name="color_orange">orange</string>
     <string name="color_green">green</string>
+
+    <!--sound data-->
+    <string name="sound_bonfire">bonfire</string>
+    <string name="sound_typing">typing</string>
+    <string name="sound_underwater">underwater</string>
+    <string name="sound_coffeemachine">coffeeMachine</string>
+    <string name="sound_book">book</string>
+    <string name="sound_insect">insect</string>
+    <string name="sound_heartbeat">heartbeat</string>
+    <string name="sound_bird">bird</string>
 </resources>

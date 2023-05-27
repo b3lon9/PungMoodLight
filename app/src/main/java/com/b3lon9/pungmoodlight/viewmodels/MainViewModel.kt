@@ -26,6 +26,17 @@ class MainViewModel(private val context:Context) : ViewModel() {
     private var currentPath:File? = null
     private var settingDialog:SettingDialog? = SettingDialog(context)
 
+    val data = arrayOf(
+        resources.getString(R.string.sound_bonfire),
+        resources.getString(R.string.sound_typing),
+        resources.getString(R.string.sound_coffeemachine),
+        resources.getString(R.string.sound_book),
+        resources.getString(R.string.sound_insect),
+        resources.getString(R.string.sound_heartbeat),
+        resources.getString(R.string.sound_underwater),
+        resources.getString(R.string.sound_bird)
+    )
+
     var mainBreath:Boolean = true       /* breath screen */
     var mainMute:Boolean = false        /* sound mute */
 
@@ -49,6 +60,10 @@ class MainViewModel(private val context:Context) : ViewModel() {
         }
     }
 
+    /**
+     * setting Dialog -> data listener
+     * @data - SettingModel
+     * */
     private val listener = object:SettingViewModel.SettingDataListener{
         override fun onSettingData(data: SettingModel) {
             NLog.d("...onSettingData : $data")
