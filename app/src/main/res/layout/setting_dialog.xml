@@ -29,8 +29,7 @@
 
         <TextView
             style="@style/SettingItemsStyle"
-            android:text="@string/setting_timer"
-            android:textAlignment="center"/>
+            android:text="@string/setting_timer" />
 
         <LinearLayout
             style="@style/TimePickerGroupStyle">
@@ -84,13 +83,29 @@
             android:background="@color/style1_level4"
             android:layout_marginBottom="21dp"/>
 
-        <CheckBox
+        <!--<CheckBox
             style="@style/CheckBoxStyle"
             android:text="@string/setting_random_color" />
 
 
         <NumberPicker
-            style="@style/SettingItemsStyle"/>
+            style="@style/SettingItemsStyle"/>-->
+
+        <TextView
+            style="@style/SettingItemsStyle"
+            android:text="@string/setting_color" />
+        <RadioGroup
+            style="@style/RadioGroupStyle">
+            <RadioButton
+                android:id="@+id/color_orange"
+                style="@style/RadioButtonStyle"
+                android:text="@string/color_orange" />
+
+            <RadioButton
+                android:id="@+id/color_green"
+                style="@style/RadioButtonStyle"
+                android:text="@string/color_green" />
+        </RadioGroup>
 
         <CheckBox
             style="@style/CheckBoxStyle"

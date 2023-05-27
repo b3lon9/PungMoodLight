@@ -7,12 +7,16 @@
 
     <!--setting-->
     <string name="setting_next_sound">다음 소리 재생</string>
-    <string name="setting_timer">타이머</string>
+    <string name="setting_timer">타이머 선택</string>
     <string name="setting_random_color">랜덤 색상</string>
     <string name="setting_remove_all_advertise">모든 광고 제거</string>
     <string name="setting_apply">적용</string>
+    <string name="setting_color">색생 선택</string>
 
     <string name="time_hour">시간</string>
     <string name="time_minute">분</string>
     <string name="time_second">초</string>
+
+    <string name="color_orange">주황</string>
+    <string name="color_green">초록</string>
 </resources>

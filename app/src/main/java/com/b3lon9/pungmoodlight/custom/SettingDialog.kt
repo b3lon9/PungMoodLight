@@ -91,10 +91,5 @@ class SettingDialog(private val context:Context) : Dialog(context) {
         }
     }
 
-    private val formatter = object:NumberPicker.Formatter {
-        override fun format(i: Int): String {
-            return String.format("%02d", i)
-        }
-
-    }
+    private val formatter = NumberPicker.Formatter { i -> String.format("%02d", i) }
 }

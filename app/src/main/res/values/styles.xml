@@ -37,6 +37,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginBottom">@dimen/setting_items_margin_bottom</item>
         <item name="android:textSize">@dimen/setting_checkbox_text_size</item>
+        <item name="android:textAlignment">center</item>
     </style>
 
     <style name="CheckBoxStyle" parent="SettingItemsStyle">
@@ -53,7 +54,7 @@
         <item name="android:orientation">vertical</item>
     </style>
 
-    <style name="TimePickerBaseStyle">
+    <style name="TimePickerBaseStyle" parent="SettingItemsStyle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:orientation">horizontal</item>
@@ -65,5 +66,13 @@
         <item name="android:layout_weight">1</item>
 
         <item name="android:gravity">center</item>
+    </style>
+
+    <style name="RadioGroupStyle" parent="TimePickerBaseStyle">
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="RadioButtonStyle" parent="TimePickerStyle" >
+        <item name="android:gravity">start|center_vertical</item>
     </style>
 </resources>
