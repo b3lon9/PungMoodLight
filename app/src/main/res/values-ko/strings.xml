@@ -3,7 +3,9 @@
     <string name="app_name">풍무드등</string>
 
     <!--folder mkdir success message-->
+    <string name="toast_permission_folder">폴더 접근 권한을 승인하여 주세요</string>
     <string name="toast_mkdir_fail">폴더를 생성할 수 없습니다</string>
+    <string name="toast_download_complete">다운로드를 완료하였습니다</string>
 
     <!--setting-->
     <string name="setting_next_sound">다음 소리 재생</string>
@@ -21,6 +23,7 @@
     <string name="color_green">초록</string>
 
     <!--sound data-->
+    <string name="sound_all">모든</string>
     <string name="sound_bonfire">모닥불</string>
     <string name="sound_typing">타이핑</string>
     <string name="sound_underwater">물 속</string>

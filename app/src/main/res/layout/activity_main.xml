@@ -4,6 +4,7 @@
     xmlns:ads="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <import type="android.view.View" />
 
         <variable
             name="vm"
@@ -31,7 +32,9 @@
                     android:layout_width="@dimen/main_download_button_size"
                     android:layout_height="@dimen/main_download_button_size"
                     android:layout_margin="@dimen/main_download_button_margin"
-                    android:background="@drawable/baseline_download_24" />
+                    android:background="@drawable/baseline_download_24"
+                    android:visibility="@{vm.isSoundFolderAll() ? View.VISIBLE:View.INVISIBLE}"
+                    android:onClickListener="@{() -> vm.popupDownload(@string/sound_all)}"/>
 
                 <Space
                     android:layout_width="0dp"
@@ -54,7 +57,8 @@
                 <NumberPicker
                     android:id="@+id/main_picker"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:onValueChange="@{(picker, old, new) -> vm.pickerChangeItem(new)}"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>

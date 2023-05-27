@@ -2,7 +2,9 @@
     <string name="app_name">PungMoodLight</string>
 
     <!--folder mkdir success message-->
+    <string name="toast_permission_folder">approve access folder permission</string>
     <string name="toast_mkdir_fail">not make folder</string>
+    <string name="toast_download_complete">complete download</string>
 
     <!--setting-->
     <string name="setting_next_sound">play next sound</string>
@@ -20,6 +22,7 @@
     <string name="color_green">green</string>
 
     <!--sound data-->
+    <string name="sound_all">all</string>
     <string name="sound_bonfire">bonfire</string>
     <string name="sound_typing">typing</string>
     <string name="sound_underwater">underwater</string>

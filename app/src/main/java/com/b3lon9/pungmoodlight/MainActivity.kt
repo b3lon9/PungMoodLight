@@ -3,6 +3,7 @@ package com.b3lon9.pungmoodlight
 import android.os.Build
 import android.os.Bundle
 import android.view.WindowManager
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -27,6 +28,11 @@ class MainActivity : AppCompatActivity() {
         vm = MainViewModel(this)
 
         binding.vm = vm
+        // root Folder
+        if (!vm.rootFolderCheck()) {
+            Toast.makeText(this, resources.getString(R.string.toast_permission_folder), Toast.LENGTH_SHORT).show()
+            return
+        }
         // todo(internet connect) : check
         // todo(download wmv resources) : check
 

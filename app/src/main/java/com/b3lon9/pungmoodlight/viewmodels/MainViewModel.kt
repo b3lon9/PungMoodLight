@@ -4,11 +4,13 @@ import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Color
 import android.media.MediaPlayer
 import android.os.Environment
 import android.widget.Toast
+import androidx.databinding.ObservableBoolean
 import androidx.lifecycle.ViewModel
 import com.b3lon9.nlog.NLog
 import com.b3lon9.pungmoodlight.MusicService
@@ -26,6 +28,10 @@ class MainViewModel(private val context:Context) : ViewModel() {
     private var currentPath:File? = null
     private var settingDialog:SettingDialog? = SettingDialog(context)
 
+    // path
+    val musicFolderPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC)
+    val rootFolderPath = "$musicFolderPath/pungmoodlight"
+
     val data = arrayOf(
         resources.getString(R.string.sound_bonfire),
         resources.getString(R.string.sound_typing),
@@ -36,6 +42,10 @@ class MainViewModel(private val context:Context) : ViewModel() {
         resources.getString(R.string.sound_underwater),
         resources.getString(R.string.sound_bird)
     )
+
+    private val sounds = arrayOf("bonfire", "typing", "coffeemachine", "book", "insect", "heartbeat", "underwater", "bird")
+
+    var isSoundFolderAll = ObservableBoolean(true)
 
     var mainBreath:Boolean = true       /* breath screen */
     var mainMute:Boolean = false        /* sound mute */
@@ -51,6 +61,42 @@ class MainViewModel(private val context:Context) : ViewModel() {
     // ad
     var confRemoveAdvertise = false      /* toggle btn */
 
+    fun popupDownload(fileName:String) {
+        val dialog = AlertDialog.Builder(context)
+            .setTitle("다운로드 알림")
+            .setMessage("$fileName 음원 파일을 다운로드 받으세요 !")
+            .setPositiveButton("네") { dialog, i ->
+                run {
+                    NLog.d("... dialog : $dialog, i : $i")
+                    val storage = Firebase.storage
+                    if (fileName.equals(resources.getString(R.string.sound_all))) {
+
+                    } else {
+                        val folderName = sounds[data.indexOf(fileName)]
+                        NLog.v("...folderName : $folderName")
+
+                        val destinationFilePath = "$rootFolderPath/$folderName"
+                        val list = storage.reference.child(folderName)
+
+                        list.listAll()
+                            .addOnSuccessListener {
+                                it.items.forEach {
+                                    it.getFile(File(destinationFilePath))
+                                        .addOnCompleteListener {
+                                            Toast.makeText(context, resources.getString(R.string.toast_download_complete), Toast.LENGTH_SHORT).show()
+                                        }
+                                        .addOnProgressListener {
+                                            NLog.d("... storage : ${it.storage}, ${it.bytesTransferred}/${it.totalByteCount}")
+                                        }
+                                }
+                            }
+                    }
+                }
+            }
+            .create()
+
+        dialog.show()
+    }
 
     fun popupSetting() {
         // val dialogBuilder = AlertDialog.Builder(context)
@@ -58,6 +104,12 @@ class MainViewModel(private val context:Context) : ViewModel() {
             it.settingDataListener(listener)
             it.show()
         }
+    }
+
+    fun pickerChangeItem(idx:Int) {
+        NLog.d("... pickerChangeItem : $idx")
+        NLog.d("... pickerChangeItem : ${sounds[idx]}")
+        folderCheck(idx)
     }
 
     /**
@@ -74,12 +126,39 @@ class MainViewModel(private val context:Context) : ViewModel() {
         }
     }
 
-    fun download() {
-        // music folder
-        val rootPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC)
+    fun rootFolderCheck():Boolean {
+        var isCreateFolder = true
 
+        val rootFolder = File(rootFolderPath)
+
+        if (!rootFolder.exists()) {
+            if (!rootFolder.mkdir()) {
+                isCreateFolder = false
+            }
+        }
+
+        return isCreateFolder
+    }
+
+    private fun folderCheck(folderIdx:Int):Unit {
+        val soundFolder = File("$rootFolderPath/${sounds[folderIdx]}")
+        NLog.d("...folderCheck : ${soundFolder.path}")
+
+        if (!soundFolder.exists()) {
+            if (!soundFolder.mkdir()) {
+                Toast.makeText(context, resources.getString(R.string.toast_mkdir_fail), Toast.LENGTH_SHORT).show()
+                return
+            } else NLog.d("... make soundFolder : $soundFolder")
+        }
+
+        if (soundFolder.listFiles()!!.isEmpty()) {
+            popupDownload(data[folderIdx])
+        }
+    }
+
+    fun download() {
         // theme folder
-        val themePath = File("$rootPath/pungmoodlight")
+        val themePath = File(rootFolderPath)
 
         if (!themePath.exists()) {
             NLog.d("...not exists : ${themePath.path}")
