@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="main_download_button_size">@dimen/main_setting_button_size</dimen>
+    <dimen name="main_download_button_margin">@dimen/main_setting_button_margin</dimen>
     <dimen name="main_setting_button_size">48dp</dimen>
-    <dimen name="main_setting_button_margin">12dp</dimen>
+    <dimen name="main_setting_button_margin">21dp</dimen>
 
     <dimen name="control_breath_button_size">68dp</dimen>
     <dimen name="control_player_button_size">96dp</dimen>

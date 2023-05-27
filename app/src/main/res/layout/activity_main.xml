@@ -26,6 +26,13 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
+                <Button
+                    android:id="@+id/main_download"
+                    android:layout_width="@dimen/main_download_button_size"
+                    android:layout_height="@dimen/main_download_button_size"
+                    android:layout_margin="@dimen/main_download_button_margin"
+                    android:background="@drawable/baseline_download_24" />
+
                 <Space
                     android:layout_width="0dp"
                     android:layout_height="0dp"
