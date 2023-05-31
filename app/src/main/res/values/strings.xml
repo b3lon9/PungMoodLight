@@ -31,4 +31,7 @@
     <string name="sound_insect">insect</string>
     <string name="sound_heartbeat">heartbeat</string>
     <string name="sound_bird">bird</string>
+
+    <!--download dialog-->
+    <string name="download_init">0%</string>
 </resources>

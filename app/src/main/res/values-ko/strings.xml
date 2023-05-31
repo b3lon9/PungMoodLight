@@ -33,4 +33,6 @@
     <string name="sound_heartbeat">심장</string>
     <string name="sound_bird">새</string>
 
+    <!--download dialog-->
+    <string name="download_init">0%</string>
 </resources>

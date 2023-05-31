@@ -75,4 +75,17 @@
     <style name="RadioButtonStyle" parent="TimePickerStyle" >
         <item name="android:gravity">start|center_vertical</item>
     </style>
+
+    <!--download dialog-->
+    <style name="DownloadDialogStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="ProgressMsgStyle" parent="DownloadDialogStyle">
+        <item name="android:layout_marginTop">@dimen/download_dialog_progress_margin_top</item>
+        <item name="android:textSize">@dimen/download_dialog_progress_msg</item>
+        <item name="android:text">@string/download_init</item>
+    </style>
 </resources>
