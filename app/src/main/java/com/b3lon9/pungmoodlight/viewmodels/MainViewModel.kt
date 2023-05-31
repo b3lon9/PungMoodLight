@@ -19,8 +19,12 @@ import com.b3lon9.pungmoodlight.constant.MusicFile
 import com.b3lon9.pungmoodlight.custom.SettingDialog
 import com.b3lon9.pungmoodlight.models.SettingModel
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FileDownloadTask.TaskSnapshot
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.OnProgressListener
 import com.google.firebase.storage.ktx.storage
 import java.io.File
+import java.util.Dictionary
 
 @SuppressLint("StaticFieldLeak")
 class MainViewModel(private val context:Context) : ViewModel() {
@@ -69,6 +73,11 @@ class MainViewModel(private val context:Context) : ViewModel() {
                 run {
                     NLog.d("... dialog : $dialog, i : $i")
                     val storage = Firebase.storage
+
+                    val dialog = Dialog(context)
+                    dialog.setContentView(R.layout.download_dialog)
+                    dialog.show()
+
                     if (fileName.equals(resources.getString(R.string.sound_all))) {
 
                     } else {
@@ -78,15 +87,22 @@ class MainViewModel(private val context:Context) : ViewModel() {
                         val destinationFilePath = "$rootFolderPath/$folderName"
                         val list = storage.reference.child(folderName)
 
+                        val dicBytes = HashMap<String, Int>()
+                        val dicTotal = HashMap<String, Int>()
+
                         list.listAll()
                             .addOnSuccessListener {
-                                it.items.forEach {
-                                    it.getFile(File(destinationFilePath))
-                                        .addOnCompleteListener {
-                                            Toast.makeText(context, resources.getString(R.string.toast_download_complete), Toast.LENGTH_SHORT).show()
+                                it.items.forEach {ref ->
+                                    ref.getFile(File("$destinationFilePath/${ref.name}"))
+                                        .addOnCompleteListener { snapshot ->
+                                            // Toast.makeText(context, resources.getString(R.string.toast_download_complete), Toast.LENGTH_SHORT).show()
+                                            NLog.d("...Complete : $snapshot")
                                         }
-                                        .addOnProgressListener {
-                                            NLog.d("... storage : ${it.storage}, ${it.bytesTransferred}/${it.totalByteCount}")
+                                        .addOnSuccessListener { snapshot ->
+                                            updateProgress(dicBytes, dicTotal, snapshot)
+                                        }
+                                        .addOnProgressListener {snapshot ->
+                                            updateProgress(dicBytes, dicTotal, snapshot)
                                         }
                                 }
                             }
@@ -97,6 +113,18 @@ class MainViewModel(private val context:Context) : ViewModel() {
 
         dialog.show()
     }
+
+    private fun updateProgress(dicBytes:HashMap<String, Int>, dicTotal:HashMap<String, Int>,snapshot:TaskSnapshot) {
+        val storageName = snapshot.storage.name
+        val storageBytes = snapshot.bytesTransferred.toInt()
+        val storageTotal = snapshot.totalByteCount.toInt()
+
+        dicBytes[storageName] = storageBytes
+        dicTotal[storageName] = storageTotal
+
+
+    }
+
 
     fun popupSetting() {
         // val dialogBuilder = AlertDialog.Builder(context)
